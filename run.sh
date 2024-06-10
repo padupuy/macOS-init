@@ -109,7 +109,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.dock tilesize -int 32
 
 # Active magnification
-defaults write com.apple.dock magnification -bool true
+# defaults write com.apple.dock magnification -bool true
 
 # Maximum size for magnification
 defaults write com.apple.dock largesize -float 128
@@ -145,8 +145,8 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # defaults write com.apple.dock wvous-tl-modifier -int 0
 
 # Top right: screensaver
-defaults write com.apple.dock wvous-tr-corner -int 5
-defaults write com.apple.dock wvous-tr-modifier -int 0
+# defaults write com.apple.dock wvous-tr-corner -int 5
+# defaults write com.apple.dock wvous-tr-modifier -int 0
 
 # Bottom left: application windows
 # defaults write com.apple.dock wvous-bl-corner -int 3
@@ -198,7 +198,7 @@ defaults write com.apple.safari ShowFullURLInSmartSearchField -int 1
 defaults write com.apple.safari SendDoNotTrackHTTPHeader -int 1
 
 # Safari: show bookmarks bar by default
-defaults write com.apple.Safari ShowFavoritesBar -bool true
+# defaults write com.apple.Safari ShowFavoritesBar -bool true
 
 # Disable back gesture
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
@@ -244,16 +244,17 @@ defaults write com.apple.screencapture location -string "$HOME/Downloads"
 echo "dnsmasq configuration"
 # http://passingcuriosity.com/2013/dnsmasq-dev-osx/
 if [ ! -e "/usr/local/etc/dnsmasq.conf" ]; then
-  echo 'address=/.test/127.0.0.1' >> $(brew --prefix)/etc/dnsmasq.conf
+  echo 'address=/.localdev/.test/127.0.0.1' >> $(brew --prefix)/etc/dnsmasq.conf
   sudo brew services start dnsmasq
 fi
 
-# Change npm's config so it uses ^ (minor versions) by default when saving dependencies
 echo "npm configuration"
-npm config set save-prefix '^'
+npm config set save-prefix ''
 
 echo "git configuration"
 git config --global init.defaultBranch main
+git config --global pull.rebase merges
+git config --global alias.ll "log --all --decorate --oneline --graph"
 
 echo "Restarting Finder and Dock. You'll need to restart the computer to complete."
 killall Dock
