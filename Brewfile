@@ -1,16 +1,6 @@
 # https://github.com/Homebrew/homebrew-bundle
 
 # -----------------------------------------------------------------------------
-# Homebrew taps
-# -----------------------------------------------------------------------------
-
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'homebrew/bundle'
-tap 'homebrew/cask-drivers'
-
-# -----------------------------------------------------------------------------
 # Settings
 # -----------------------------------------------------------------------------
 
@@ -73,17 +63,17 @@ mas 'Slack', id: 803453959
 # Visual Studio Code extensions
 # -----------------------------------------------------------------------------
 
-vscode bradlc.vscode-tailwindcss
-vscode dbaeumer.vscode-eslint
-vscode eamodio.gitlens
-vscode esbenp.prettier-vscode
-vscode figma.figma-vscode-extension
-vscode github.copilot
-vscode github.copilot-chat
-vscode marcostazi.vs-code-drupal
-vscode mblode.twig-language-2
-vscode ms-vsliveshare.vsliveshare
-vscode stylelint.vscode-stylelint
-vscode unifiedjs.vscode-mdx
-vscode whatwedo.twig
-vscode yoavbls.pretty-ts-errors
+code --install-extension bradlc.vscode-tailwindcss
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension eamodio.gitlens
+code --install-extension esbenp.prettier-vscode
+code --install-extension figma.figma-vscode-extension
+code --install-extension github.copilot
+code --install-extension github.copilot-chat
+code --install-extension marcostazi.vs-code-drupal
+code --install-extension mblode.twig-language-2
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension stylelint.vscode-stylelint
+code --install-extension unifiedjs.vscode-mdx
+code --install-extension whatwedo.twig
+code --install-extension yoavbls.pretty-ts-errors
