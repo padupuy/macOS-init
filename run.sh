@@ -238,6 +238,25 @@ defaults write com.apple.screencapture disable-shadow -bool false
 defaults write com.apple.screencapture location -string "$HOME/Downloads"
 
 # -----------------------------------------------------------------------------
+# Visual Studio Code extensions
+# -----------------------------------------------------------------------------
+
+code --install-extension bradlc.vscode-tailwindcss
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension eamodio.gitlens
+code --install-extension esbenp.prettier-vscode
+code --install-extension figma.figma-vscode-extension
+code --install-extension github.copilot
+code --install-extension github.copilot-chat
+code --install-extension marcostazi.vs-code-drupal
+code --install-extension mblode.twig-language-2
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension stylelint.vscode-stylelint
+code --install-extension unifiedjs.vscode-mdx
+code --install-extension whatwedo.twig
+code --install-extension yoavbls.pretty-ts-errors
+
+# -----------------------------------------------------------------------------
 # Other configurations
 # -----------------------------------------------------------------------------
 
