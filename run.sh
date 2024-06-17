@@ -285,6 +285,7 @@ git config --global init.defaultBranch main
 git config --global pull.rebase merges
 git config --global alias.ll "log --all --decorate --oneline --graph"
 git config --global --add --bool push.autoSetupRemote true
+git config --global credential.helper osxkeychain
 
 echo "Restarting Finder and Dock. You'll need to restart the computer to complete."
 killall Dock
