@@ -22,7 +22,7 @@ fi
 
 echo "Adding Homebrew binaries to the PATH"
 echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+echo "eval \"$(/opt/homebrew/bin/brew shellenv)\"" >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Update the list of applications available with Homebrew"
@@ -262,10 +262,20 @@ code --install-extension yoavbls.pretty-ts-errors
 
 echo "dnsmasq configuration"
 # http://passingcuriosity.com/2013/dnsmasq-dev-osx/
-if [ ! -e "/usr/local/etc/dnsmasq.conf" ]; then
-  echo 'address=/.localdev/.test/127.0.0.1' >> $(brew --prefix)/etc/dnsmasq.conf
-  sudo brew services start dnsmasq
+dnsmasq_conf="$(brew --prefix)/etc/dnsmasq.conf"
+if [ ! -e "$dnsmasq_conf" ]; then
+  echo 'address=/.localdev/.test/127.0.0.1' >> "$dnsmasq_conf"
 fi
+dnsmasq_resolver="$(brew --prefix)/etc/resolver"
+if [ ! -e "$dnsmasq_resolver" ]; then
+  sudo mkdir -v /etc/resolver
+  dnsmasq_resolver_test="$(brew --prefix)/etc/resolver/test"
+  echo 'nameserver 127.0.0.1' >> "$dnsmasq_resolver_test"
+  dnsmasq_resolver_localdev="$(brew --prefix)/etc/resolver/localdev"
+  echo 'nameserver 127.0.0.1' >> "$dnsmasq_resolver_localdev"
+fi
+sudo brew services start dnsmasq
+
 
 echo "npm configuration"
 npm config set save-prefix ''
