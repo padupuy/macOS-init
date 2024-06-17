@@ -33,6 +33,8 @@ cask 'iterm2'
 # Misc utilities
 cask 'bitwarden'
 cask 'deepl'
+cask 'maccy' # Clipboard manager
+cask 'rectangle' # Window manager
 
 # Web
 cask 'firefox'
